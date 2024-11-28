@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.example.kafka.entity.Customer
+        spring.json.trusted.packages: "*"
+
+  kafka.listener:
+    group1:
+      group-id: customers_id
+      auto-offset-reset: earliest
+    group2:
+      group-id: group_id
+      auto-offset-reset: earliest
